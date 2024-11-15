@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -11,13 +10,15 @@ body {
     color: white;
 }
 
-/* Fade-in animation for the heading */
+/* Fade-in animation for elements */
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -27,6 +28,7 @@ h1 {
     font-weight: 600;
     animation: fadeIn 2s ease-in; /* Apply fade-in animation */
 }
+
 .logo-container {
     display: flex; /* Use flexbox for centering */
     justify-content: center; /* Center horizontally */
@@ -34,22 +36,10 @@ h1 {
     margin: 20px 0; /* Add some margin above and below */
 }
 
-.logo {
-    width: 100px; /* Set a specific width for the logo */
+.logo-container img {
+    width: 150px; /* Adjust this value as needed */
     height: auto; /* Maintain aspect ratio */
     animation: fadeIn 1s ease-in-out forwards; /* Apply fade-in animation */
-}
-
-/* Fade-in animation for the logo */
-@keyframes fadeIn {
-    from {
-        opacity: 0; /* Start transparent */
-        transform: translateY(20px); /* Start slightly lower */
-    }
-    to {
-        opacity: 1; /* Fully visible */
-        transform: translateY(0); /* End at normal position */
-    }
 }
 
 form {
@@ -126,7 +116,7 @@ form button {
    grid-gap :40px; 
 }
 
-/* Fade-in animation for images */
+/* Fade-in animation for images in search results */
 .fade-in {
    opacity :0; 
    animation :fadeIn 1s forwards; 
@@ -193,92 +183,128 @@ form button {
     }
 }
 
-/* Existing styles remain unchanged... */
-
 /* Card styles */
-/* Existing styles remain unchanged... */
 
-/* Card styles */
 .card {
     width: 300px;
-    height: 200px;
-    background-color: #4158D0;
-    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-    border-radius: 8px;
-    color: white;
-    overflow: hidden;
-    position: relative;
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
-    cursor: pointer;
-    margin: 80px auto; /* Center the card */
-    
-    /* Apply fade-in animation on load */
-    animation: fadeIn 1s ease-in-out forwards; /* Animation for card */
+    height: auto;
+    background-color:#4158D0;
+	background-image:
+	linear-gradient(43deg, #4158D0, #C850C0, #FFCC70);
+	border-radius:
+	8px;
+	color:white;
+	overflow:hidden;
+	position:
+	relative;
+	transform-style:
+	preserve-3d;
+	perspective:
+	1000px;
+	transition:
+	all .5s cubic-bezier(.23,1,.32,1);
+	cursor:pointer;
+	margin:
+	80px auto;
+
+	/* Apply fade-in animation on load */	
+	animation:
+	fadeIn .5s ease-in-out forwards;
+
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0; /* Start transparent */
-        transform: translateY(20px); /* Start slightly lower */
-    }
-    to {
-        opacity: 1; /* Fully visible */
-        transform: translateY(0); /* End at normal position */
-    }
+.card-content {	
+	padding:
+	20px;
+	position:
+	relative;
+	z-index:
+	1;
+
+	display:flex;
+
+	flex-direction:
+	column;
+
+	gap:
+	10 px;
+
+	color:white;
+
+	align-items:center;
+
+	justify-content:center;
+
+	text-align:center;
+
+	height:
+	100%;
 }
 
-/* Existing card content styles remain unchanged... */
+.card-content .card-title {	
+	font-size:
+	24 px;
 
-.card-content {
-    padding: 20px;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    color: white;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100%;
+	font-weight:
+	700;
+
+	color:
+	inherit;
+
+	text-transform:
+	uppercase;
+
 }
 
-.card-content .card-title {
-    font-size: 24px;
-    font-weight: 700;
-    color: inherit;
-    text-transform: uppercase;
+.card-content .card-para {	
+	color:
+	inherit;
+
+	opacity:
+	.8;
+
+	font-size:
+	14 px;
+
 }
 
-.card-content .card-para {
-    color: inherit;
-    opacity: 0.8;
-    font-size: 14px;
+.card:hover {	
+	transform:
+	scale(1.05);
+	box-shadow:
+	0
+	10 px
+	20 px
+	rgba(0,0,0,.2);
 }
 
-.card:hover {
-    transform: rotateY(10deg) rotateX(10deg) scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.card:hover
+.before,
+.card:hover
+.after {	
+	content:"";
+	position:absolute;
+
+	top:
+	0;
+
+	left:
+	0;
+
+	width:
+	100%;
+	height:
+	100%;
 }
 
-.card:before,
-.card:after {
-   content: "";
-   position: absolute;
-   top: 0; 
-   left: 0; /* Adjusted for both pseudo-elements */
-   width: 100%;
-   height: 100%;
+.card:hover
+.before {	
+	transform:
+	translateX(-100%);
 }
 
-.card:hover:before {
-   transform: translateX(-100%);
+.card:hover
+.after {	
+	transform:
+	translateX(100%);
 }
-
-.card:hover:after {
-   transform: translateX(100%);
-}
-
-/* Existing styles continue... */
